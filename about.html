@@ -1,141 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<style>
-    h4{
-        font-family:Verdana, Geneva, Tahoma, sans-serif;
-    }
-    body {
-        font-family: Courier, monospace;
-        margin: 0;
-        padding: 0;
-        background: url(./greengradient.png) no-repeat center center;
-    }
-    .header {
-        background-size: cover;
-        color: #fff;
-        padding: 10px 20px;
-        position: center;
-    }
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .navbar .name a{
-        font-size: 1.5em;
-        font-weight: bold;
-        color:#e0a00cfe;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .navbar .menu {
-        display: flex;
-        gap: 15px;
-    }
-    .navbar .menu a {
-        color: #2311e5;
-        padding: 20px 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-</style>
-</head>
-
-<body>
-
-<div class="header">
-<div class="navbar">
-    <div class="name">
-        <a id="Home" href="./index.html">madisen l.</a></div>
-    <div class="menu">
-        <a id="Home" href="./index.html">home</a>
-        <a id="About" href="./about.html">about</a>
-        <a id="Work" href="./work.html">resume</a>
-        <a id="Resume & CV" href="./portfolio.html">work/portfolio</a>
-    </div>
-</div>
-</div>
-</body>
-
 <head>
-    <title>about</title>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            text-align: left;
-        }
-        .title {
-            font-size: 2em;
-            font-weight: bold;
-            margin-top: 20px;
-            text-align: center;
-            font-family: "didot", sans-serif;
-        }
-        .centered-textbox {
-            width: 60%;
-            margin: 20px auto;
-            text-align: center;
-            padding: 10px;
-            border-bottom: 1px solid #000000;
-        }
-        .section {
-            display: flex;
-            align-items: center;
-            margin: 20px 0;
-            padding: 10px 0;
-            border-bottom: 1px solid #000000;
-        }
-        .section img {
-            width: 500px;
-            margin-right: 20px;
-            border-radius: 5%;
-        }
-        .textbox {
-            flex: 1;
-            padding: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Photography & Blog – Madisen</title>
+  <link rel="stylesheet" href="photography.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="title">hi!</div>
-        <div class="centered-textbox">
-            <p>Welcome to my website! I am Madisen an aspiring Data Scientist & Senior at the University of Illinois 
-                studying <b>Information Sciences</b> with a Data & Society Pathway. I love computers!</p>
-        </div>
-        <div class="section">
-            <img src="./wataer.jpeg" alt="Image 1">
-            <div class="textbox">
-                <p>As an Information Sciences student, I engage with research projects that allow me to blend 
-                    principles of data science and social science to study the ways in which sociotechnical systems 
-                    intersect with communities of color.</p>
-            </div>
-        </div>
-        <div class="section">
-            <img src="./flower.jpeg" alt="Image 2">
-            <div class="textbox">
-                <p>My commitment to social justice has led me to engage in various forms of advocacy work and
-                    service, driven by my passion to address systemic inequalities experienced by marginalized
-                    peoples to foster meaningful societal change.</p>
-            </div>
-        </div>
-        <div class="title">for funsies</div>
-        <div class="section">
-            <img src="./Untitled.gif" alt="Image 3">
-            <div class="textbox">
-                <p>Outside of school, I love music and enjoy film & digital photography. Shooting mostly 
-                    nature and street photography of places I've traveled. All photos are taken with respect 
-                    & curiosity of the different ways to capture life in a still image.</p>
-            </div>
-        </div>
+  <!-- Fixed global nav (optional, used for color change demo) -->
+  <header class="site-header">
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#work" class="nav-link">Work</a>
+      <a href="photography.html" class="nav-link nav-link-current">Photography</a>
+      <a href="index.html#footer" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <!-- FULLSCREEN PHOTOGRAPHY / ABOUT HERO -->
+  <main id="photo-hero" class="photo-hero">
+    <!-- Background video -->
+    <video class="photo-hero-video" autoplay muted loop>
+      <source src="/assets/videos/girls_running.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <!-- Left vertical menu removed -->
+
+    <!-- Big logo/title top‑right -->
+    <div class="photo-logo-wrap">
+      <span class="photo-logo">Ise.</span>
     </div>
+
+    <!-- Optional overlay text for blog/photography blurb (kept subtle) -->
+    <section class="photo-caption">
+      <h1 class="photo-caption-title">Photography &amp; Blog</h1>
+      <p class="photo-caption-text">
+        Architecture, nature, and everyday people captured in motion.
+      </p>
+    </section>
+  </main>
+  <!-- PHOTOGRAPHY & BLOG SECTION -->
+<section id="photo-blog" class="photo-blog-section">
+  <!-- Optional local nav for this section (top left) -->
+  <nav class="photo-blog-nav">
+    <a href="#photo-blog" class="photo-blog-link active">Photography</a>
+    <a href="#photo-blog-impact" class="photo-blog-link">Impact</a>
+    <a href="#photo-blog-writing" class="photo-blog-link">Writing</a>
+  </nav>
+
+  <!-- 2‑column project grid -->
+  <div class="photo-grid">
+    <article class="photo-card">
+      <img src="/assets/images/IMG_3078.JPG" alt="Kapiolani Blvd" />
+      <p class="photo-caption-small">
+        <span class="caption-strong">Kapiolani</span>
+        <span class="caption-light">1978 Pentax ME </br>
+      Ise </p></span>
+      </p>
+    </article>
+
+    <article class="photo-card">
+      <img src="/assets/images/IMG_3087.jpg" alt="Ala Moana" />
+      <p class="photo-caption-small">
+        <span class="caption-strong">Ala Moana</span>
+        <span class="caption-light">1978 Pentax ME </br>
+      Ise </p></span>
+      </p>
+    </article>
+  </div>
+
+  <!-- Impact story strip -->
+  <section id="photo-blog-impact" class="impact-strip">
+    <img src="/assets/images/IMG_3080.JPG" alt="Architecture that lasts" class="impact-image" />
+
+    <div class="impact-text-row">
+      <div class="impact-copy">
+        <h2 class="impact-title">Photography that lasts</h2>
+        <p class="impact-subtitle">
+          We must see a world where beings are valued for their
+          lasting impact.
+        </p>
+        <a href="#impact-details" class="impact-link">See what inspires my work
+        </a>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+<!-- PHOTOGRAPHY STRIP SECTION -->
+<section id="photo-strip" class="photo-strip">
+  <div class="photo-strip-inner">
+    <article class="photo-item">
+      <img src="/assets/images/15.JPG" alt="House on Diamond Head Road" />
+      <p class="photo-title">Diamond Head</p>
+      <p class="photo-credit">1987 Pentax IQZoom EZY-R </br>
+      Ise </p>
+    </article>
+
+    <article class="photo-item">
+      <img src="/assets/images/30.JPG" alt="SALT Kaka'akao Mural" />
+      <p class="photo-title">SALT Kaka'akao</p>
+      <p class="photo-credit">1987 Pentax IQZoom EZY-R </br>
+      Ise </p>
+    </article>
+
+    <article class="photo-item">
+      <img src="/assets/images/17.JPG" alt="Kalakaua Ave & Kapahulu Ave" />
+      <p class="photo-title">Kala Kapa Ave</p>
+      <p class="photo-credit">1987 Pentax IQZoom EZY-R </br>
+      Ise </p>
+    </article>
+  </div>
+</section>
+
+
+  <!-- 2-column photo grid before footer -->
+  <section class="photo-blog-section">
+    <div class="photo-grid">
+      <article class="photo-card">
+        <img src="/assets/images/21.JPG" alt="Waikiki Beach" />
+        <p class="photo-caption-small">
+          <span class="caption-strong">Waikiki Beach</span>
+          <span class="caption-light">1987 Pentax IQZoom EZY-R </br>
+      Ise </p></span>
+        </p>
+      </article>
+
+      <article class="photo-card">
+        <img src="/assets/images/49.jpg" alt="Bondi House photograph" />
+        <p class="photo-caption-small">
+          <span class="caption-strong">Mō'ili'ili</span>
+          <span class="caption-light">1987 Pentax IQZoom EZY-R </br>
+      Ise </p></span>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Main hero section -->
+  <main id="jamHero" class="jam-hero">
+    <!-- Huge JAM / AREA text bottom left / right -->
+    <div class="jam-word jam-word-left">MAD</div>
+    <div class="jam-word jam-word-right">ISEN</div>
+
+    <!-- Center copy and small red dot -->
+    <section class="jam-center">
+      <span class="jam-center-dot"></span>
+      <div class="jam-center-text">
+        <p class="jam-center-small">© MADISEN</p>
+        <p class="jam-center-main">
+          PERSONAL BRANDING<br />
+          DATA<br />
+          AND WEB DESIGN
+        </p>
+        <p class="jam-center-cta">JUST DO IT</p>
+      </div>
+    </section>
+  </main>
+
+
+  <script src="photography.js"></script>
 </body>
 </html>
-

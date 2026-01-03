@@ -1,0 +1,508 @@
+/* ==== Page base ==== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #000;
+  color: #fff;
+} */
+
+/* ===== Global header nav (top center) ===== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  padding: 1.25rem 2.5rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* so photo hero still feels full-bleed */
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  pointer-events: auto;
+}
+
+.nav-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.25s ease;
+}
+
+/* default “light section” style would be dark text;
+   on this dark photography page we want white: */
+body.photo-dark .nav-link {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.nav-link-current,
+.nav-link:hover {
+  color: #ffffff;
+}
+
+/* ==== Fullscreen hero with background video ==== */
+
+.photo-hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  color: #ffffff;
+  background-color: #000;
+}
+
+.photo-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Darken slightly for text legibility */
+.photo-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== Left vertical menu ===== */
+
+.photo-side-nav {
+  position: absolute;
+  top: 1rem;
+  left: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 10;
+}
+
+.photo-side-link {
+  font-size: 0.7rem;              /* tiny text like screenshot */
+  line-height: 1.2;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+}
+
+.photo-side-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Big logo top-right ===== */
+
+.photo-logo-wrap {
+  position: absolute;
+  top: 1rem;
+  right: 1.8rem;
+  z-index: 10;
+}
+
+.photo-logo {
+  font-size: 4.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+/* ===== Optional caption text (subtle, lower-left-ish) ===== */
+
+.photo-caption {
+  position: absolute;
+  left: 2.5rem;
+  bottom: 2.5rem;
+  max-width: 360px;
+  z-index: 10;
+}
+
+.photo-caption-title {
+  font-size: 1.4rem;
+  margin: 0 0 0.4rem;
+}
+
+.photo-caption-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 20rem;
+}
+
+/* ===== Responsive tweaks ===== */
+
+@media (max-width: 768px) {
+  .photo-logo {
+    font-size: 3.2rem;
+  }
+
+  .photo-caption {
+    left: 1.5rem;
+    bottom: 1.5rem;
+  }
+}
+
+/* Section wrapper */
+.photo-blog-section {
+  background-color: #ffffff;
+  color: #111111;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* Local nav (small text, top-left) */
+.photo-blog-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.photo-blog-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #999999;
+  transition: color 0.25s ease;
+}
+
+.photo-blog-link.active,
+.photo-blog-link:hover {
+  color: #111111;
+}
+
+/* 2-column image grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.photo-card {
+  background: transparent;
+}
+
+.photo-card img {
+  width: 100%;
+  display: block;
+}
+
+/* Small caption bottom-left under image */
+.photo-caption-small {
+  margin: 0.35rem 0 0;
+  font-size: 0.75rem;
+  color: #8a8a8a;
+}
+
+.caption-strong {
+  font-weight: 800;
+  font-size: medium;
+  color: #111111;
+  margin-right: 0.25rem;
+}
+
+.caption-light {
+  font-weight: 400;
+  font-size: small;
+}
+
+/* Impact strip */
+.impact-strip {
+  margin-top: 2rem;
+  background-color: #ffffff;
+}
+
+.impact-image {
+  width: 100%;
+  margin-left: 0;
+  display: block;
+}
+
+/* Text row under image */
+.impact-text-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: flex-start;
+  padding: 1.75rem 0 0;
+}
+
+.impact-copy {
+  max-width: 640px;
+}
+
+.impact-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.4rem;
+  color: #8e1b0e; /* deep orange */
+  font-weight: 700;
+}
+
+.impact-subtitle {
+  margin: 0 0 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #111111;
+}
+
+/* "See Our Impact" link */
+.impact-link {
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #111111;
+}
+
+.impact-link:hover {
+  text-decoration: underline;
+}
+
+/* Scroll button removed */
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-text-row {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+  }
+
+}
+
+
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+  background-color: #8e1b0e;
+  color: #111111;
+}
+
+/* ===== Top nav ===== */
+
+.jam-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 1.75rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 20;
+}
+
+.jam-nav-left,
+.jam-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.jam-nav-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #111111;
+  border-radius: 50%;
+}
+
+.jam-nav-dot-right {
+  background-color: #111111;
+}
+
+.jam-nav-button {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #555555;
+  cursor: pointer;
+}
+
+/* When hero is active, nav text darker */
+body.hero-active .jam-nav-button {
+  color: #111111;
+}
+
+/* ===== Hero layout ===== */
+
+.jam-hero {
+  min-height: 40vh; /* reduced height per request */
+  padding: 4.5rem 2rem 2rem; /* account for fixed header */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Thumbnails row near top center */
+.jam-thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 3.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.jam-thumb {
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+  background-color: #444;
+}
+
+/* Huge JAM / AREA words at bottom edges */
+.jam-word {
+  position: absolute;
+  bottom: 0;
+  font-size: 10rem;
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #111111;
+}
+
+.jam-word-left {
+  left: 0.4rem;
+}
+
+.jam-word-right {
+  right: 0.4rem;
+}
+
+/* Centered copy block */
+.jam-center {
+  position: absolute;
+  left: 50%;
+  bottom: 2.4rem;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.jam-center-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e64537; /* red dot */
+}
+
+.jam-center-text {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.jam-center-small {
+  margin: 0 0 0.35rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+}
+
+.jam-center-main {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.jam-center-cta {
+  margin: 0.9rem 0 0;
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .jam-thumbs {
+    flex-wrap: wrap;
+    row-gap: 1.75rem;
+    column-gap: 1.75rem;
+  }
+
+  .jam-word {
+    font-size: 6rem;
+  }
+
+  .jam-center {
+    bottom: 3.2rem;
+  }
+}
+
+
+/* Section wrapper */
+.photo-strip {
+  background-color: #ffffff;
+  padding: 3rem 2.5rem 4rem;
+}
+
+/* Centered row of three items */
+.photo-strip-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.75rem;
+}
+
+/* Each photo card */
+.photo-item img {
+  width: 100%;
+  display: block;
+}
+
+/* Caption text under image */
+.photo-title {
+  margin: 0.45rem 0 0.1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.photo-credit {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #999999;
+}
+
+/* Optional: if global nav should switch to dark text on this light section */
+body.nav-light-on-strip .nav-link {
+  color: #111111;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .photo-strip-inner {
+    grid-template-columns: 1fr;
+    row-gap: 2.25rem;
+  }
+}
